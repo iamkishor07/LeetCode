@@ -5,7 +5,7 @@ class Solution {
         for(Character c:p.toCharArray()){
             if(c!=']')s.push(c);
             else{
-                    String str="";
+                String str="";
                 while(!s.isEmpty() && s.peek()!='['){
                     str=s.pop()+str;
                 }
@@ -19,6 +19,7 @@ class Solution {
                 for(int i=0;i<req;i++){
                     temp+=str;
                 }
+                // s.push(temp);
                 for(Character i:temp.toCharArray()){
                     s.push(i);
                 }
