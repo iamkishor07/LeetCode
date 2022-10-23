@@ -66,26 +66,23 @@ class Solution{
     //Function to rotate a linked list.
     public Node rotate(Node head, int k) {
         if(head==null) return head;
-        // add code here
         int len=1;
         Node temp=head;
         while(temp.next!=null){
-            temp=temp.next;
             len++;
+            temp=temp.next;
         }
-        if(len==k) return head;
-        k=k%len;
+        if(k >= len) return head;
         Node prev=null;
-        Node node1=head;
-        while(k-->0 && node1!=null){
-            prev=node1;
-            node1=node1.next;
-        // System.out.println(node1.data);
+        Node t=head;
+        while(k!=0 ){
+            prev=t;
+            t=t.next;
+            k--;
         }
-        // System.out.println(node1.data);
-        prev.next=null;
         temp.next=head;
-        head=node1;
+        prev.next=null;
+        head=t;
         return head;
         
     }
