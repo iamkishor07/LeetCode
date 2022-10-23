@@ -86,12 +86,6 @@ class Solution
     public static Node reverseBetween(Node head, int m, int n)
     {
         //code here
-        int len=0;
-        Node temp=head;
-        while(temp!=null){
-            len++;
-            temp=temp.next;
-        }
         if(head==null) return head;
         Node p1=head,p2=head;
         Node prev1=null;
