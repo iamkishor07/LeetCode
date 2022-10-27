@@ -4,11 +4,10 @@ class Solution {
         String a="";
         int len=s.length();
         for(String i:A){
-            String p="";
             for(int j=i.length()-1;j>=0;j--){
-                p+=i.charAt(j);
+                a+=i.charAt(j);
             }
-            a+=" "+p;
+            a+=" ";
         }
         return a.strip();
         
