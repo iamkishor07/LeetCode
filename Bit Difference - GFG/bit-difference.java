@@ -12,15 +12,19 @@ import java.io.*;
 class Solution{
     
     // Function to find number of bits needed to be flipped to convert A to B
+    public static int countBits(int n){
+        int cnt=0;
+        while(n>0){
+            cnt+=n&1;
+            n=n>>1;
+        }
+        return cnt;
+    }
     public static int countBitsFlip(int a, int b){
         
         // Your code here
-        int ans=a^b,cnt=0;
-        String bin = Integer.toBinaryString(ans);
-        for(char i:bin.toCharArray()){
-            if(i=='1') cnt++;
-        }
-        return cnt;
+        int res=a^b;
+        return countBits(res);
         
     }
     
