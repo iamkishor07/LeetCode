@@ -32,9 +32,10 @@ class Solution
         // Your code here
         int pos=0;
         while(n>0){
-            if((n & 1)==1) return pos+1;
-            pos++;
-            n=n>>1;
+            if((n & 1)==1) return pos+1; //we check the last bit with & 1 it return 1 if it contains last bit as 1
+            
+            pos++; //we keep incrementing the pos as the index from 0
+            n=n>>1; // and every time we are right shifting the n untill it becomes 0
         }
         return n;
             
