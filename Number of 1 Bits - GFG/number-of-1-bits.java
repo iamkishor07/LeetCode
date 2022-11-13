@@ -26,8 +26,8 @@ class Solution {
         // code here
         int cnt=0;
         while(N>0){
-            cnt+=N&1; // check the last bit with and 1 which results 1 if the last bit is 1  else 0;
-            N=N>>1;
+            cnt+=N%2; // check the last bit with and 1 which results 1 if the last bit is 1  else 0;
+            N=N/2;
         }
         return cnt;
     }
