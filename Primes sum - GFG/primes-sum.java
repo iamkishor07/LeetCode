@@ -21,15 +21,28 @@ class GFG {
 
 //User function Template for Java
 class Solution {
-    public static boolean isPrime(int n){
-        for(int i=2;i<=Math.sqrt(n);i++){
-            if(n%i==0) return false;
-        }
-        return true;
-    }
+    // public static boolean isPrime(int n){
+    //     for(int i=2;i<=Math.sqrt(n);i++){
+    //         if(n%i==0) return false;
+    //     }
+    //     return true;
+    // }
+    
+    //seiveofErasthromes method
+
     static String isSumOfTwo(int N){
-        for(int i=1;i<N;i++){
-            if(isPrime(i) && isPrime(N-i)){
+        
+        Boolean[] dp=new Boolean[N];
+        Arrays.fill(dp,true);
+        for(int i=2;i*i<=N;i++){
+            if(dp[i]==true){
+                for(int j=i*i;j<N;j+=i){
+                    dp[j]=false;
+                }
+            }
+        }
+        for(int i=2;i<N;i++){
+            if(dp[i] && dp[N-i]){
                 return "Yes";
             }
         }
