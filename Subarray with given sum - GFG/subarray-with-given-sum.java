@@ -4,26 +4,32 @@ import java.lang.*;
 import java.io.*;
 
 class Main{
-	public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+	static BufferedReader br;
+    static PrintWriter ot;
+    public static void main(String[] args) throws IOException{
+        
+        br = new BufferedReader(new InputStreamReader(System.in));
+        ot = new PrintWriter(System.out);
 
-        int t = sc.nextInt();
+        int t = Integer.parseInt(br.readLine());
 
-        for (int i = 0; i < t; i++) {
-            int n = sc.nextInt();
-            int s = sc.nextInt();
-
-            int[] m = new int[n];
-            for (int j = 0; j < n; j++) {
-                m[j] = sc.nextInt();
-            }
+        while(t-->0){
             
+            String s[] = br.readLine().trim().split(" ");
+            
+            int n = Integer.parseInt(s[0]);
+            int k = Integer.parseInt(s[1]);
+            int a[] = new int[n];
+            s = br.readLine().trim().split(" ");
+            for(int i = 0; i < n; i++)
+                a[i] = Integer.parseInt(s[i]);
             Solution obj = new Solution();
-            ArrayList<Integer> res = obj.subarraySum(m, n, s);
+            ArrayList<Integer> res = obj.subarraySum(a, n, k);
             for(int ii = 0;ii<res.size();ii++)
-                System.out.print(res.get(ii) + " ");
-            System.out.println();
+                ot.print(res.get(ii) + " ");
+            ot.println();
         }
+        ot.close();
     }
 
 }
@@ -38,7 +44,7 @@ class Solution
         // Your code here
         ArrayList<Integer> l=new ArrayList<Integer>();
         int start=0;
-        long currsum=0;
+        int currsum=0;
         for(int i=0;i<n;i++){
             currsum+=arr[i];
             while(currsum>s && start<i){
@@ -51,9 +57,8 @@ class Solution
                 break;
             }
         }
-        if(l.size()==0) {
+        if(l.size()==0){
             l.add(-1);
-            return l;
         }
         return l;
     }
