@@ -66,6 +66,7 @@ class Solution{
         for(int i=0;i<v1.length;i++){
             map.put(v1[i],map.getOrDefault(v1[i],0)+1);
         }
+        Arrays.sort(v2);
         for(int i:v2){
             if(map.containsKey(i)){
                 ans.add(i);
